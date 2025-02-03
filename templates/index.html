@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TerraAlert</title>
+    <style>
+        body {
+            background-color: #dfdacb; 
+            color: #333;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Full viewport height */
+            flex-direction: column; /* Stack elements vertically */
+            text-align: center; /* Center text inside the form */
+        }
+        h1 {
+            color: brown; /* Green color for the heading */
+            margin-bottom: 20px;
+        }
+        form {
+            background: #fff; /* White background for form */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+            display: flex;
+            flex-direction: column; /* Stack form elements */
+            align-items: center;
+        }
+        label {
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        input[type="file"] {
+            margin: 10px 0;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #4CAF50; /* Green button */
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-transform: uppercase;
+            font-size: 14px;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Landslide Prediction</h1>
+    <form action="/upload" method="post" enctype="multipart/form-data">
+        <label for="file">Upload a multispectral .h5 file:</label>
+        <input type="file" name="file" id="file" accept=".h5" required>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

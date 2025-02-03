@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Result - TerraAlert</title>
+    <style>
+        body {
+            background-color: #f4f4f4;
+            color: #333;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        h1 {
+            color: #8b0000;
+            margin-bottom: 20px;
+        }
+        .image-container {
+            display: flex;
+            justify-content: center; /* Center images horizontally */
+            flex-wrap: wrap; /* Allow wrapping for smaller screens */
+            gap: 20px; /* Add spacing between images */
+            margin: 20px 0;
+        }
+        .image-container div {
+            flex: 1 1 30%; /* Each image container takes 30% of the width */
+            max-width: 30%; /* Limit maximum width */
+            text-align: center;
+        }
+        .image-container img {
+            width: 100%; /* Make images fill their container */
+            height: auto; /* Maintain aspect ratio */
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
+        }
+        .back-button {
+            display: inline-block;
+            padding: 15px 30px; /* Larger button for better visibility */
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            margin-top: 20px;
+            font-size: 1.2em;
+            transition: background-color 0.3s ease; /* Smooth hover effect */
+        }
+        .back-button:hover {
+            background-color: #45a049;
+        }
+        .stats {
+            margin-top: 20px;
+            font-size: 1.2em;
+            color: #333;
+        }
+        @media (max-width: 768px) {
+            .image-container div {
+                flex: 1 1 100%; /* Full width on smaller screens */
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Prediction Result</h1>
+
+    <!-- Display Statistics -->
+    <div class="stats">
+        <h2>Landslide Area Statistics</h2>
+        <p><strong>DEM Mean:</strong> {{ dem_mean }}</p>
+        <p><strong>DEM Std:</strong> {{ dem_std }}</p>
+        <p><strong>NDVI Mean:</strong> {{ ndvi_mean }}</p>
+        <p><strong>NDVI Std:</strong> {{ ndvi_std }}</p>
+    </div>
+
+    <!-- Image Container -->
+    <div class="image-container">
+        <div>
+            <h2>Original Image</h2>
+            <img src="{{ original_image }}" alt="Original Image">
+        </div>
+
+        <div>
+            <h2>Mask Image</h2>
+            <img src="{{ mask_image }}" alt="Mask Image">
+        </div>
+
+        <div>
+            <h2>Overlay Image</h2>
+            <img src="{{ overlay_image }}" alt="Overlay Image">
+        </div>
+    </div>
+
+    <!-- Back Button -->
+    <a href="/" class="back-button">Go Back</a>
+</body>
+</html>
